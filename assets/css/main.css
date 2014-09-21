@@ -20,7 +20,7 @@ body {
 
 /* Titles */ 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
+    font-family: #font-family: PingHei, 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;;
     font-weight: 300;
     color: #333;
 }
@@ -109,9 +109,11 @@ a:after {
 
 #headerwrap h2 {
 	color: white;
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: 100;
 	letter-spacing: 2px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* Portfolio Wrap */
@@ -138,7 +140,7 @@ a:after {
 
 #portfoliowrap h4 {
 	font-weight:bold;
-	color: #999;
+	color: #333;
 }
 
 .port-space {
@@ -170,10 +172,15 @@ a:after {
 
 #g {
 	background: #f2f2f2;
-	padding-top: 35px;
+	padding-top: 10px;
 	padding-bottom: 35px;
 	text-align: center;
 }
+
+#g h3 {
+    margin-top: 5px;
+}
+
 #g h4{
 	font-weight:bold;
 }
@@ -467,4 +474,9 @@ a:after {
 
 .team:hover span{
 	display:none;
+}
+
+#time h4,
+#time p {
+    display: inline;
 }

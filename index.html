@@ -18,15 +18,16 @@
 
     <script src="assets/js/jquery-1.8.2.min.js"></script>
 	<script src="assets/js/Chart.js"></script>
-	<script src="assets/js/modernizr.custom.js"></script>
 	<script src="assets/js/jquery.plugin.min.js"></script>
 	<link href="assets/js/jcountdown.css" rel="stylesheet" type="text/css">
 	<script src="assets/js/jquery.jcountdown.min.js"></script>
+    <script src="assets/js/flipclock.js"></script>
+    <link rel="stylesheet" href="assets/css/flipclock.css">
 	<style type="text/css">
 	#divMap{height:500px;width:100%; }
 	#r-result{height:0;width:0}
 	</style>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DnY5SHBLYmU4gYkcGDyle5nF"></script>
+	<script type="text/javascript" src="assets/js/baidu.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.js"></script>
@@ -56,7 +57,7 @@
 	<div id="headerwrap">
 		<div class="container">
 			<h2>Wedding Invitation</h2>
-			<h2>『光』阴『静』走<br/>镌刻永恒</h2>
+			<h2>『光』阴『静』走<h2 style="margin-left: 10px;">镌刻永久</h2></h2>
 			<div class="row">
 				<br>
 				<br>
@@ -74,6 +75,11 @@
 		<div class="container">
 			<div class="row">
 				<h3>欢迎参加 <bold>杨光&amp;纪静</bold>婚礼</h3>
+                <div id="time">
+                    <h4>喜宴时间:</h4>
+                    <p>2014年10月02日 11时30分<br/>
+                        农历九月初九 星期四</p>
+                </div>
 			</div>
 		</div><!-- /container -->
 	</div><!-- /g -->
@@ -85,12 +91,9 @@
 					<div class="span2"></div>
 				</div>
 				<div class="col-md-4 text-left">
-					<h4>喜宴时间</h4>
-					<p>2014年10月02日 11时30分<br/>
-					农历九月初九 星期四</p>
 			 		<h4>喜宴地点</h4>
-					<p>川人王印象酒楼西户路店 婚宴厅<br/>
-					科技八路&amp;西户路口 红庙村停车场附近</p>
+					<p>川人王印象酒楼(西户路店婚宴厅)<br/>
+					科技八路&amp;西户路口——红庙村停车场附近</p>
 					<h4>乘车路线</h4>
 					<p>乘坐502路/526路/928路/929路到红庙村站下车即可</p>
 				</div>
@@ -103,28 +106,24 @@
 			<div class="row">
 				<div class="col-lg-2"></div>
 				<div class="col-lg-8">
-					<h3>您的光临与祝福，将是我们最大的荣幸！</h3>
+					<h3>您的光临与祝福<br>将是我们最大的荣幸！</h3>
 				</div>
 				<div class="col-lg-2"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-3 team">
 					<img class="img-rounded" src="assets/img/team02.png" width="293" height="310">
-					<span></span>
 				</div>
 				<div class="col-md-3 team">
 					<img class="img-rounded" src="assets/img/team01.png" width="293" height="310" >
-					<span></span>
 				</div>
 
 				<div class="col-md-3 team">
 					<img class="img-rounded" src="assets/img/team03.png" width="293" height="310">
-					<span></span>
 				</div>
 
 				<div class="col-md-3 team">
 					<img class="img-rounded" src="assets/img/team04.png" width="293" height="310">
-					<span></span>
 				</div>
 			</div>
 		</div><!-- /container -->
@@ -135,9 +134,10 @@
 	<div id="f">
 		<div class="container">
 			<div class="row">
-				<div ><h3>距离婚礼还剩</h3></div>
-				<div id="timecounter"></div>
+				<div><h3 style="margin-top: 0px">距离婚礼还剩</h3></div>
+                <div id="clock" class="myclock"></div>
 			</div>
+
 		</div><!-- /container -->
 	</div><!-- /f -->
 	
@@ -158,7 +158,7 @@
 </html>
 <script type="text/javascript">
 
-// 百度地图API功能 
+// 百度地图API功能
 var map = new BMap.Map("divMap");            // 创建Map实例
 map.centerAndZoom(new BMap.Point(108.866253,34.211513), 11);
 var local = new BMap.LocalSearch(map, {
